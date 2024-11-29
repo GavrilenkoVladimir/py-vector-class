@@ -1,23 +1,22 @@
 from typing import Any
 import math
-from __future__ import annotations
 
 
 class Vector:
 
-    def __init__(self, x: float, y: float) -> None:
-        self.x = round(x, 2)
-        self.y = round(y, 2)
+    def __init__(self, coordinate_x: float, coordinate_y: float) -> None:
+        self.x = round(coordinate_x, 2)
+        self.y = round(coordinate_y, 2)
 
-    def __add__(self, other) -> Any:
+    def __add__(self, other: Any) -> Any:
         vector = Vector(self.x + other.x, self.y + other.y)
         return vector
 
-    def __sub__(self, other) -> Any:
+    def __sub__(self, other: Any) -> Any:
         vector = Vector(self.x - other.x, self.y - other.y)
         return vector
 
-    def __mul__(self, other) -> Any:
+    def __mul__(self, other: Any) -> Any:
         if isinstance(other, (int, float)):
             vector = Vector(self.x * other.real, self.y * other.real)
             return vector
@@ -44,7 +43,7 @@ class Vector:
             / Vector.get_length(self))
         return vector
 
-    def angle_between(self, other) -> float:
+    def angle_between(self, other: Any) -> float:
         dot_product = self * other
         length_1 = Vector.get_length(self)
         length_2 = Vector.get_length(other)
